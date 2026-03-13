@@ -1,0 +1,63 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+#root {
+  height: 100%;
+  width: 100%;
+}
+.main-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.canvas {
+  display: flex;
+  flex-direction: row;
+  height: 512px;
+  width: 512px;
+  justify-content: center;
+  align-items: center;
+}
+.action-items {
+  display: inline-flex;
+  flex-direction: row;
+  width: 400px;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+  
+}
+.action {
+    align-content: center;  
+    background-color: rgb(38, 38, 250);
+    color: #fff;
+    border-radius: 5px;
+    height: 40px;
+    text-align: center;
+    width: 120px;
+}
+.action > input[type='file'] {
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+
+.empty {
+  height: 100%;
+  width: 100%;
+  background: #ddd8d8;
+}
+.main {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
