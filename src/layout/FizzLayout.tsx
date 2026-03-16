@@ -13,14 +13,13 @@ function FizzLayout() {
     }
     return (
         <div className='main-container'>
-            <div className='canvas'>
-                <FizzCanvas image={image} ready={ready}/>
-            </div>
-            <div className='action-items'>
+            <FizzCanvas image={image} ready={ready}/>
+            { !ready && <div className='action-items'>
                 <label className='action'> Select Image
                     <input className='action' type='file' onChange={uploadImage} />
                 </label>
             </div>
+            }
         </div>
     )
 }

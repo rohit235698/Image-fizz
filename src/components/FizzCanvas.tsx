@@ -7,7 +7,7 @@ interface Props {
 }
 function FizzCanvas({ ready, image }: Props) {
     if (!ready)
-        return <div className='empty'></div>
+        return null
     if (image) {
         setImage(image);
         return <PixelLayout width ={image.width} height={image.height} />

@@ -13,7 +13,7 @@ function PixelComponent({color, lvl, pos}: Props) {
   const springs = useSpring({
     from: { transform: "scale(0)"},
     to: { transform: "scale(1)" }
-  })
+  });
   const split = () => {
     if ((pos.he - pos.hs) > 4)
       activate(false);
@@ -23,8 +23,8 @@ function PixelComponent({color, lvl, pos}: Props) {
       <animated.div
         style={{
           backgroundColor: color,
-          height: '100%',
-          width: '100%',
+          height: Math.min(pos.he - pos.hs, pos.ve - pos.vs),
+          width: Math.min(pos.he - pos.hs, pos.ve - pos.vs),
           borderRadius: '50%',
           ...springs
         }}
