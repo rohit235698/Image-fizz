@@ -15,7 +15,7 @@ function PixelComponent({color, lvl, pos}: Props) {
     to: { transform: "scale(1)" }
   });
   const split = () => {
-    if ((pos.he - pos.hs) > 4)
+    if ((pos.he - pos.hs) > 1)
       activate(false);
   }
   if (active) {

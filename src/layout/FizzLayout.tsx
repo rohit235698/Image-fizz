@@ -7,13 +7,12 @@ function FizzLayout() {
     const [ready, setReady] = useState(false);
     const [image, setImage] = useState<Bitmap>();
     const uploadImage = async (e: ChangeEvent<HTMLInputElement>) => {
-        setReady(true);
         setImage(await getImageDetails(e.currentTarget.files![0]));
-        
+        setReady(true);
     }
     return (
         <div className='main-container'>
-            <FizzCanvas image={image} ready={ready}/>
+            <FizzCanvas image={image} ready={ready} />
             { !ready && <div className='action-items'>
                 <label className='action'> Select Image
                     <input className='action' type='file' onChange={uploadImage} />
