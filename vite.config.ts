@@ -4,7 +4,7 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills'
 // https://vite.dev/config/
 export default defineConfig({
   base: "/Image-fizz",
-  plugins: [nodePolyfills({ include: ["utils"] })],
+  plugins: [nodePolyfills()],
   server: {
     open: true,
   },
