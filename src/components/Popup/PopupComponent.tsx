@@ -9,18 +9,22 @@ function PopupComponent({ show, msg, title, onClose }: Props) {
     if (!show)
         return null;
     return (
-        <div className='modal-container'>
-            <div className='modal-header'>
-                <span className='modal-title'>{title}</span>
-                <button className='modal-action' type='button' onClick={onClose}>
-                    <span className='forward-slash'></span>
-                    <span className='backward-slash'></span>
-                </button>
+        <>
+            <div className='modal-container'>
+                <div className='modal-header'>
+                    <img className='modal-header-icon' src={new URL(import.meta.url).origin.concat('/Image-fizz/close.png')}></img>
+                    <span className='modal-title'>{title ? title : 'Error'}</span>
+                    <button className='modal-action' type='button' onClick={onClose}>
+                        <span className='forward-slash'></span>
+                        <span className='backward-slash'></span>
+                    </button>
+                </div>
+                <div className='modal-body'>
+                    <p className='modal-text'>{msg}</p>
+                </div>
             </div>
-            <div className='modal-body'>
-                <p className='modal-text'>{msg}</p>
-            </div>
-        </div>
+            <div className='modal-backdrop'></div>
+        </>
     );
 }
 

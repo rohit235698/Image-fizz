@@ -17,6 +17,6 @@ export async function getImageDetails(file: File): Promise<Bitmap> {
         image.crop({x: rem >> 1, y: 0, w: 500, h: 500});
     }
     if (image.height !== image.width)
-        throw new Error(`Image Dimension ${image.height}x${image.width} unsupported`);
+        throw new Error(`Unsupported image dimensions ${image.height}x${image.width}`);
     return image.bitmap;
 }
