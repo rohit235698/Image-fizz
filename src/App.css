@@ -18,7 +18,7 @@ html, body {
   height: 280px;
   width: 700px;
   background-color: rgb(252, 252, 252);
-  border: 2px dashed rgb(218, 217, 217);
+  border: 2px dashed rgb(217, 217, 217);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,8 +27,8 @@ html, body {
   color: #979797;
 }
 .active {
-  border-color: rgb(43, 213, 255);
-  color:  rgb(23, 209, 255);
+  border-color: rgb(100, 100, 100);
+  color: rgb(50, 50, 50);
 }
 .container-icon {
   height: 80px;
