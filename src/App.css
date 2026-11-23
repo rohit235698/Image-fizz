@@ -89,6 +89,9 @@ html, body {
   align-items: center;
   border-style: none;
 }
+.modal-action:focus:not(:focus-visible) {
+  outline: none;
+}
 .modal-body {
   position: absolute;
   height: calc(100% - 35px);
