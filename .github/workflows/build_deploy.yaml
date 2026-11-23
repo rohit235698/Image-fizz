@@ -1,9 +1,9 @@
 name: build_deploy
 on:
   push:
-    branches: ["main"]
+    branches: ['main']
 jobs:
-  build:
+  build_deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages

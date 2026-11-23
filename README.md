@@ -1,2 +1,5 @@
-# Image - Fizz
-Fun Project using [jimp](https://www.npmjs.com/package/jimp) and [React](https://www.npmjs.com/package/react)
+# Image Fizz
+
+Image fizz is a fun project build with react and typescript.
+
+[Demo](https://rohit235698.github.io/Image-fizz/)

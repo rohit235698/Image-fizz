@@ -9,13 +9,78 @@ html, body {
 .main-container {
   height: 100%;
   width: 100%;
-  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
 }
-
+.container {
+  height: 502px;
+  width: 502px;
+  background-color: rgb(252, 252, 252);
+  border: 2px dashed rgb(218, 217, 217);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.modal-container {
+  height: 200px;
+  width: 350px;
+  position: absolute;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+}
+.modal-header {
+  position: absolute;
+  width: 350px;
+  padding: 0px;
+  border-bottom: 1px solid #7d7d7d;
+  align-self: center;
+  z-index: 3;
+  height: 35px;
+}
+.modal-title {
+  display: inline-flex;
+  height: 35px;
+  padding: 0px 10px;
+  justify-content: center;
+  align-items: center;
+}
+.modal-action {
+  float: right;
+  background-color: inherit;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: none;
+}
+.modal-body {
+  position: absolute;
+  height: calc(100% - 35px);
+  top: 35px;
+  width: 100%;
+}
+.modal-text {
+  padding: 10px;
+}
+.forward-slash {
+  height: 20px;
+  background-color: black;
+  position: absolute;
+  width: 1px;
+  transform: rotate(45deg);
+}
+.backward-slash {
+  height: 20px;
+  background-color: black;
+  position: absolute;
+  width: 1px;
+  transform: rotate(-45deg);
+}
 .action-items {
   display: inline-flex;
   flex-direction: row;
