@@ -154,3 +154,11 @@ html, body {
   display: flex;
   flex-direction: row;
 }
+.pixel {
+  animation-name: pixel;
+  animation-duration: 0.5s;
+}
+@keyframes pixel {
+  from {transform: scale(0);}
+  to {transform: scale(1);}
+}

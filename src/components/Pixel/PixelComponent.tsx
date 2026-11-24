@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useSpring, animated } from '@react-spring/web'
 import { getPixelColor, type Position } from '../../service/PixelService';
 
 interface Props {
@@ -10,27 +9,22 @@ interface Props {
 
 function PixelComponent({color, lvl, pos}: Props) {
   const [active, activate] = useState(true);
-  const springs = useSpring({
-    from: { transform: "scale(0)"},
-    to: { transform: "scale(1)" }
-  });
   const split = () => {
     if ((pos.he - pos.hs) > 1)
       activate(false);
   }
   if (active) {
     return (
-      <animated.div
+      <div
+        className='pixel'
         style={{
           backgroundColor: color,
           height: Math.min(pos.he - pos.hs, pos.ve - pos.vs),
           width: Math.min(pos.he - pos.hs, pos.ve - pos.vs),
           borderRadius: '50%',
-          ...springs
         }}
         key={lvl}
-        onMouseOver={split}
-      />
+        onMouseOver={split}/>
     );
   }
   const positions: Position[] = [{
