@@ -22,6 +22,8 @@ jobs:
           node-version: 24
       - name: Install dependencies
         run: npm install
+      - name: Run Eslint
+        run: npm run lint
       - name: prepare build
         run: npm run build
       - name: Setup Pages
