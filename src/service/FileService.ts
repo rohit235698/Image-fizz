@@ -12,8 +12,8 @@ export async function getImage(file: File): Promise<ImageData> {
     ctx.drawImage(imageBitMap, 0, 0);
     let imageData: ImageData
     if (height > 500 && width > 500){
-        let h = height * factor;
-        let w = width * factor;
+        const h = height * factor;
+        const w = width * factor;
         ctx.reset();
         ctx.scale(factor, factor);
         ctx.drawImage(imageBitMap, 0, 0);

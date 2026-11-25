@@ -17,7 +17,7 @@ export const getPixelColor = ({hs, he, vs, ve} : Position) => {
         throw new Error('Image Data is not available');
     const row = Math.floor((ve + vs) / 2)-1;
     const col = Math.floor((he + hs) / 2)-1;
-    let index = ((row * imageData.width) + col) * 4;
+    const index = ((row * imageData.width) + col) * 4;
     // Pixel
     const r = imageData.data[index];
     const g = imageData.data[index + 1];
