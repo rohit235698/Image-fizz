@@ -28,6 +28,7 @@ function FizzLayout() {
     const onClose = () => {
         showModal(false);
         setMsg(undefined);
+        setActive(false);
     }
     const onDragEnter = (e: DragEvent<HTMLDivElement>) => {
         setActive(true);
