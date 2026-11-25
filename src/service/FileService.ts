@@ -23,6 +23,8 @@ export async function getImage(file: File): Promise<ImageData> {
             imageData = ctx.getImageData(rem >> 1, 0, 500, 500);
         else if (h > 500)
             imageData = ctx.getImageData(0, rem >> 1, 500, 500);
+        else
+            imageData = ctx.getImageData(0, 0, 500, 500);
     } else  if (height > 500){
         const rem = height - 500;
         imageData = ctx.getImageData(0, rem >> 1, 500, 500);
