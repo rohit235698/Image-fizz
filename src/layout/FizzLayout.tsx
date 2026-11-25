@@ -1,18 +1,17 @@
 import { useState, type ChangeEvent, type DragEvent } from 'react'
-import type { Bitmap } from 'jimp';
 import FizzCanvas from '../components/FizzCanvas'
-import { getImageDetails } from '../service/FileService';
+import { getImage } from '../service/FileService';
 import PopupComponent from '../components/Popup/PopupComponent';
 
 function FizzLayout() {
-    const [image, setImage] = useState<Bitmap>();
+    const [image, setImage] = useState<ImageData>();
     const [ready, setReady] = useState(false);
     const [show, showModal] = useState(false);
     const [active, setActive] = useState(false);
     const [msg, setMsg] = useState<string>();
     const processImage = async (file: File) => {
         try {
-            const img = await getImageDetails(file);
+            const img = await getImage(file);
             setImage(img);
             setReady(true);
         } catch(error: unknown) {

@@ -1,8 +1,7 @@
 import PixelLayout from '../layout/PixelLayout'
-import type { Bitmap } from 'jimp';
 import { setImage } from '../service/PixelService';
 interface Props {
-    image?: Bitmap;
+    image?: ImageData;
     ready: boolean;
 }
 function FizzCanvas({ ready, image }: Props) {

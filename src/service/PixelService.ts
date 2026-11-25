@@ -1,11 +1,9 @@
-import type { Bitmap } from "jimp";
-
 let imageData: ImageData;
 
 export const parseLocation = (location: string) => location.split('.').map(index => +index);
 
-export const setImage = (image: Bitmap) => {
-    imageData = new ImageData(Uint8ClampedArray.from(image.data), image.width, image.height);
+export const setImage = (image: ImageData) => {
+    imageData = image;
 }
 export interface Position {
       hs: number,

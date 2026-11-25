@@ -1,22 +1,36 @@
-import { Jimp, type Bitmap } from "jimp";
-export async function getImageDetails(file: File): Promise<Bitmap> {
-    const image = await Jimp.read(await file.arrayBuffer());
-    const { height, width } = image;
+const allowed: string[] = ['image/png', 'image/jpeg', 'image/webp'];
+export async function getImage(file: File): Promise<ImageData> {
+    if (!allowed.includes(file.type))
+        throw new Error(`'${file.type}' MIME type not supported`);
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext("2d")!;
+    const imageBitMap = await createImageBitmap(file);
+    const { height, width } = imageBitMap;
+    canvas.height = height;
+    canvas.width = width;
+    const factor = 500 / Math.min(height, width);
+    ctx.drawImage(imageBitMap, 0, 0);
+    let imageData: ImageData
     if (height > 500 && width > 500){
-        image.scale(500 / Math.min(height, width));
-        const rem = Math.max(image.width, image.height) - 500;
-        if (image.width > 500)
-            image.crop({x: rem >> 1, y: 0, w: 500, h: 500});
-        else if (image.height > 500)
-            image.crop({x: 0, y: rem >> 1, w: 500, h: 500});
+        let h = height * factor;
+        let w = width * factor;
+        ctx.reset();
+        ctx.scale(factor, factor);
+        ctx.drawImage(imageBitMap, 0, 0);
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        const rem = Math.max(h, w) - 500;
+        if (w > 500)
+            imageData = ctx.getImageData(rem >> 1, 0, 500, 500);
+        else if (h > 500)
+            imageData = ctx.getImageData(0, rem >> 1, 500, 500);
     } else  if (height > 500){
-        const rem = image.height - 500;
-        image.crop({x: 0, y: rem >> 1, w: 500, h: 500});
+        const rem = height - 500;
+        imageData = ctx.getImageData(0, rem >> 1, 500, 500);
     } else if (width > 500) {
-        const rem = image.width - 500;
-        image.crop({x: rem >> 1, y: 0, w: 500, h: 500});
+        const rem = width - 500;
+        imageData = ctx.getImageData(rem >> 1, 0, 500, 500);
+    } else {
+        imageData = ctx.getImageData(0, 0, 500, 500);
     }
-    if (image.height !== image.width)
-        throw new Error(`Unsupported image dimensions ${image.height}x${image.width}`);
-    return image.bitmap;
+    return imageData!;
 }

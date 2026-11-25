@@ -7,11 +7,9 @@
     "start": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "jimp": "1.6.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },
